@@ -2,14 +2,14 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Ana",
+  lastName: "Ganfornina Arques",
   name: `Selene Yu`,
-  role: "Design Engineer",
+  role: "iOS Develop",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "aganforques@gmail.com",
+  location: "Spain/Seville", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["Spanish", "English", "French"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter: Newsletter = {
@@ -24,17 +24,12 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/AnaGanfornina",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.linkedin.com/in/ana-ganfornina-arques/?locale=en_US",
   },
   {
     name: "Email",
@@ -65,7 +60,7 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Selene, a design engineer at{" "}
+      I'm Ana, a design engineer at{" "}
       <Logo
         dark
         icon="/trademarks/wordmark-dark.svg"
@@ -98,9 +93,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Software Developer specialized in mobile applications for iOS and
+        Android.
+        I have a strong background in performing arts, which allows me to
+        combine technical expertise with creative skills to develop innovative
+        and visually engaging projects.
       </>
     ),
   },
@@ -109,7 +106,7 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
+        company: "Primer trabajo",
         timeframe: "2022 - Present",
         role: "Senior Design Engineer",
         achievements: [
@@ -227,7 +224,7 @@ const about: About = {
     ],
   },
 };
-
+/*
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
@@ -236,7 +233,7 @@ const blog: Blog = {
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
-
+*/
 const work: Work = {
   path: "/work",
   label: "Work",
@@ -297,4 +294,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, work, gallery };
