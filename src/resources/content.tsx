@@ -1,14 +1,14 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "Ana",
   lastName: "Ganfornina Arques",
-  name: `Selene Yu`,
+  name: `Ana Ganfornina`,
   role: "iOS Develop",
   avatar: "/images/avatar.jpg",
   email: "aganforques@gmail.com",
-  location: "Spain/Seville", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  location: "Europe/Madrid", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["Spanish", "English", "French"], // optional: Leave the array empty if you don't want to display languages
 };
 
@@ -85,7 +85,7 @@ const about: About = {
     display: true,
   },
   calendar: {
-    display: true,
+    display: false,
     link: "https://cal.com",
   },
   intro: {
@@ -105,19 +105,23 @@ const about: About = {
     display: true, // set to false to hide this section
     title: "Work Experience",
     experiences: [
-      {
-        company: "Primer trabajo",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+       {
+       company: "KeepCoding Bootcamp",
+        timeframe: "2024 – 2025",
+        role: "Mobile Developer (iOS & Android)",
         achievements: [
-          <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
-          </>,
+          <>Development of native mobile applications using Swift, SwiftUI, and Kotlin.</>,
+          <>Creation of a final cross-platform app project for the Bootcamp showcase.</>,
+        ],
+        images: [],
+      },
+      {
+        company: "Cía. Teatro Vándalo",
+        timeframe: "2024 – 2025",
+        role: "Projection and Lighting Designer, Touring Theater Technician",
+        achievements: [
+          <>Responsible for the design and operation of stage lighting and projections during tours.</>,
+          <>Collaborated with directors to create visually cohesive scenic experiences.</>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
@@ -130,18 +134,11 @@ const about: About = {
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Cía. Escenantropía",
+        timeframe: "2023",
+        role: "Lighting Designer & Touring Technician – Play “En un lugar de la Ñ”",
         achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
+          <>Design and implementation of the lighting setup for the touring play.</>,
         ],
         images: [],
       },
@@ -152,12 +149,20 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Bootcamp in Mobile App Development (iOS & Android) – KeepCoding",
+        description: <>Comprehensive program focused on Swift, Kotlin, and app architectures.</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Bachelor’s Degree in Dramatic Arts – Scenography Specialization",
+        description: <>Training in stage design, visual storytelling, and production design.</>,
+      },
+      {
+        name: "Higher Vocational Diploma in Audiovisual and Show Production",
+        description: <>Focus on lighting, sound, and stage management for live performances.</>,
+      },
+      {
+        name: "Elementary Degree in Music",
+        description: <>Studies in rhythm, harmony, and musical interpretation.</>,
       },
     ],
   },
@@ -166,74 +171,48 @@ const about: About = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
+        title: "iOS Development",
+        description: <>Swift, SwiftUI, UIKit, CoreData, SwiftData, SQLite, Combine, Async/Await.</>,
         tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
+          { name: "Swift", icon: "swift" },
+          { name: "SwiftUI", icon: "swift" },
+          { name: "Xcode", icon: "apple" },
         ],
         // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+        images: [],
+       },
+      {
+        title: "Android Development",
+        description: <>Kotlin, Jetpack Compose, MVVM, Clean Architecture, Repository pattern.</>,
+        tags: [
+          { name: "Kotlin", icon: "kotlin" },
+          { name: "Jetpack Compose", icon: "android" },
         ],
+        images: [],
       },
       {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
+        title: "Frameworks & Tools",
+        description: <>Postman, Vapor, KeyChain, RxSwift, Photoshop, Figma, AutoCAD, SketchUp, Blender, Final Cut.</>,
         tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
+          { name: "Figma", icon: "figma" },
+          { name: "Photoshop", icon: "photoshop" },
+          { name: "AutoCAD", icon: "autocad" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+        images: [],
+      },
+      {
+        title: "Architectures & Patterns",
+        description: <>MVVM, MVC, VIPER, Clean Architecture, Delegate, Repository, Singleton, Builder.</>,
+        tags: [
+          { name: "MVVM", icon: "code" },
+          { name: "Clean Architecture", icon: "layers" },
         ],
-      },  
+        images: [],
+      },
     ],
   },
 };
-/*
-const blog: Blog = {
-  path: "/blog",
-  label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
-};
-*/
+
 const work: Work = {
   path: "/work",
   label: "Work",

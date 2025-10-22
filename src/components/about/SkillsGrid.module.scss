@@ -1,0 +1,212 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  width: 100%;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.skillCard {
+  padding: 32px 28px;
+  border-radius: 16px;
+  background: var(--neutral-alpha-weak);
+  border: 1px solid var(--neutral-alpha-medium);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  
+  // Efecto de brillo sutil al hover
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      var(--accent-solid-medium), 
+      transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-alpha-medium);
+    background: var(--neutral-alpha-medium);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    
+    &::before {
+      opacity: 1;
+    }
+    
+    .iconWrapper {
+      transform: scale(1.05);
+    }
+    
+    // Modo oscuro: texto blanco brillante
+    @media (prefers-color-scheme: dark) {
+      .skillItem {
+        color: #ffffff;
+        
+        .bullet {
+          color: #ffffff;
+        }
+        
+        .itemText {
+          color: #ffffff;
+        }
+      }
+      
+      .skillTitle {
+        color: #ffffff;
+      }
+    }
+    
+    // Modo claro: texto negro oscuro intenso
+    @media (prefers-color-scheme: light) {
+      .skillItem {
+        color: #0a0a0a;
+        font-weight: 500;
+        
+        .bullet {
+          color: #0a0a0a;
+        }
+        
+        .itemText {
+          color: #0a0a0a;
+          font-weight: 500;
+        }
+      }
+      
+      .skillTitle {
+        color: #0a0a0a;
+        font-weight: 700;
+      }
+    }
+  }
+  
+  // Colores personalizados por categoría
+  &[data-color="blue"] {
+    .iconWrapper {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    }
+  }
+  
+  &[data-color="green"] {
+    .iconWrapper {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+  }
+  
+  &[data-color="orange"] {
+    .iconWrapper {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    }
+  }
+  
+  &[data-color="purple"] {
+    .iconWrapper {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    }
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-solid-medium) 0%, var(--accent-solid-strong) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 24px;
+  line-height: 1;
+  filter: brightness(1.2);
+}
+
+.skillTitle {
+  display: block;
+  color: var(--neutral-solid-strong);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.description {
+  color: var(--neutral-solid-medium);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.skillList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skillItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9375rem;
+  color: var(--neutral-solid-medium);
+  line-height: 1.5;
+  transition: all 0.2s ease;
+}
+
+.bullet {
+  color: var(--accent-solid-medium);
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  display: inline-block;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.itemText {
+  flex: 1;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+// Soporte para tema oscuro
+@media (prefers-color-scheme: dark) {
+  .skillCard {
+    background: var(--neutral-alpha-weak);
+    border-color: var(--neutral-alpha-strong);
+    
+    &:hover {
+      background: var(--neutral-alpha-medium);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  .iconWrapper {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
