@@ -1,3 +1,4 @@
+import SingleProjectCard from "@/app/work/components/SingleProjectCard";
 import { notFound } from "next/navigation";
 import { getPosts } from "@/utils/utils";
 import {

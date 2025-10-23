@@ -1,37 +1,41 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
-import { baseURL, about, person, work } from "@/resources";
-import { Projects } from "@/components/work/Projects";
+"use client";
 
-export async function generateMetadata() {
-  return Meta.generate({
-    title: work.title,
-    description: work.description,
-    baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(work.title)}`,
-    path: work.path,
-  });
-}
+import SingleProjectCard from "./components/SingleProjectCard";
 
-export default function Work() {
+export default function WorkPage() {
+  const projects = [
+    {
+      title: "FitTrack",
+      description: "Una app para que los profesionales del fitness gestionen las rutinas de sus clientes.",
+      images: [
+        "/images/fittrack1.jpg",
+        "/images/fittrack2.jpg"
+      ]
+    }
+    // Para añadir más, solo duplica y cambia los datos:
+    // {
+    //   title: "Otro Proyecto",
+    //   description: "Descripción del proyecto",
+    //   images: ["/images/img4.jpg", "/images/img5.jpg"]
+    // }
+  ];
+
   return (
-    <Column maxWidth="m" paddingTop="24">
-      <Schema
-        as="webPage"
-        baseURL={baseURL}
-        path={work.path}
-        title={work.title}
-        description={work.description}
-        image={`/api/og/generate?title=${encodeURIComponent(work.title)}`}
-        author={{
-          name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-      <Heading marginBottom="l" variant="heading-strong-xl" align="center">
-        {work.title}
-      </Heading>
-      <Projects />
-    </Column>
+    <div style={{
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "24px",
+      justifyContent: "center",
+      padding: "24px"
+    }}>
+      {projects.map((project, i) => (
+        <SingleProjectCard
+          key={i}
+          title={project.title}
+          description={project.description}
+          images={project.images}
+        />
+      ))}
+    </div>
   );
 }
