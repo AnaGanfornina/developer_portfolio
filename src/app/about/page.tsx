@@ -36,9 +36,11 @@ export default function About() {
       items: [
         "Swift & SwiftUI",
         "UIKit & Auto Layout",
-        "Core Data",
-        "Push Notifications",
-        "App Store Connect"
+        "Objetctive C",
+        "Core Data & SwiftData",
+        "Combine",
+        "Async/Await",
+        "KeyChain"
       ],
     },
     {
@@ -48,9 +50,7 @@ export default function About() {
       items: [
         "Kotlin",
         "Jetpack Compose",
-        "Material Design",
-        "Room Database",
-        "Google Play Console"
+        "Material Design" 
       ],
     },
     {
@@ -60,9 +60,10 @@ export default function About() {
       items: [
         "Clean Architecture",
         "MVVM Pattern",
+        "VIPPER Pattern",
         "Dependency Injection",
         "Unit Testing",
-        "CI/CD"
+        "Delegate Pattern"
       ],
     },
     {
@@ -74,7 +75,22 @@ export default function About() {
         "Firebase",
         "SQL Databases",
         "Vapor",
-        "Cloud Services"
+      ],
+    },
+    {
+      title: "Tools",
+      icon: "🛠️",
+      color: "green",
+      items: [
+        "XCode",
+        "Android Studio",
+        "Figma",
+        "Postman",
+        "Photoshop",
+        "AutoCAD",
+        "Sketchup",
+        "Blender",
+        "Final Cut"
       ],
     },
   ];

@@ -40,12 +40,9 @@ export default function SkillsGrid({ skills }: SkillsGridProps) {
                   <span className={styles.icon}>{skill.icon}</span>
                 </div>
               )}
-              <Text 
-                variant="heading-strong-l" 
-                className={styles.skillTitle}
-              >
+              <h3 className={styles.skillTitle}>
                 {skill.title}
-              </Text>
+              </h3>
             </div>
             
             {skill.description && (

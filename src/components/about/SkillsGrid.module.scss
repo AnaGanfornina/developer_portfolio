@@ -1,11 +1,11 @@
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr); // exactamente 2 columnas
   gap: 24px;
   width: 100%;
-  
+
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; // una columna en pantallas pequeñas
     gap: 16px;
   }
 }
@@ -18,7 +18,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  
+
   // Efecto de brillo sutil al hover
   &::before {
     content: '';
@@ -27,93 +27,57 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, 
-      transparent, 
-      var(--accent-solid-medium), 
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, var(--accent-solid-medium), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-  
+
   &:hover {
     transform: translateY(-4px);
     border-color: var(--accent-alpha-medium);
     background: var(--neutral-alpha-medium);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-    
+
     &::before {
       opacity: 1;
     }
-    
+
     .iconWrapper {
       transform: scale(1.05);
     }
-    
-    // Modo oscuro: texto blanco brillante
-    @media (prefers-color-scheme: dark) {
-      .skillItem {
-        color: #ffffff;
-        
-        .bullet {
-          color: #ffffff;
-        }
-        
-        .itemText {
-          color: #ffffff;
-        }
-      }
-      
-      .skillTitle {
-        color: #ffffff;
-      }
-    }
-    
-    // Modo claro: texto negro oscuro intenso
-    @media (prefers-color-scheme: light) {
-      .skillItem {
-        color: #0a0a0a;
-        font-weight: 500;
-        
-        .bullet {
-          color: #0a0a0a;
-        }
-        
-        .itemText {
-          color: #0a0a0a;
-          font-weight: 500;
-        }
-      }
-      
-      .skillTitle {
-        color: #0a0a0a;
-        font-weight: 700;
-      }
-    }
   }
-  
-  // Colores personalizados por categoría
-  &[data-color="blue"] {
-    .iconWrapper {
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    }
+
+  &[data-color="blue"] .iconWrapper {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   }
-  
-  &[data-color="green"] {
-    .iconWrapper {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    }
+
+  &[data-color="green"] .iconWrapper {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   }
-  
-  &[data-color="orange"] {
-    .iconWrapper {
-      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-    }
+
+  &[data-color="orange"] .iconWrapper {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
   }
-  
-  &[data-color="purple"] {
-    .iconWrapper {
-      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+
+  &[data-color="purple"] .iconWrapper {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  }
+}
+
+// Override para modo claro
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  .skillCard:hover {
+    .skillItem,
+    .skillItem .bullet,
+    .skillItem .itemText {
+      color: rgb(10, 10, 10) !important;
+      font-weight: 500;
+    }
+
+    .skillTitle {
+      color: rgb(10, 10, 10) !important;
+      font-weight: 700;
     }
   }
 }
@@ -151,6 +115,11 @@
   letter-spacing: -0.02em;
   font-size: 1.25rem;
   margin: 0;
+  transition: color 0.2s ease;
+}
+
+.skillCard:hover .skillTitle {
+  color: #ffffff !important;
 }
 
 .description {
@@ -178,6 +147,10 @@
   transition: all 0.2s ease;
 }
 
+.skillCard:hover .skillItem {
+  color: #ffffff !important;
+}
+
 .bullet {
   color: var(--accent-solid-medium);
   font-weight: 700;
@@ -188,24 +161,33 @@
   opacity: 0.8;
 }
 
+.skillCard:hover .bullet {
+  color: #ffffff !important;
+  opacity: 1;
+}
+
 .itemText {
   flex: 1;
   font-weight: 400;
   transition: color 0.2s ease;
 }
 
+.skillCard:hover .itemText {
+  color: #ffffff !important;
+}
+
 // Soporte para tema oscuro
 @media (prefers-color-scheme: dark) {
   .skillCard {
-    background: var(--neutral-alpha-weak);
+    background: #2d2d2d; // 👈 gris claro oscuro
     border-color: var(--neutral-alpha-strong);
-    
+
     &:hover {
-      background: var(--neutral-alpha-medium);
+      background: #3a3a3a; // 👈 un poco más claro al hacer hover
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
     }
   }
-  
+
   .iconWrapper {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
