@@ -1,109 +1,108 @@
-import {
-  Heading,
-  Text,
-  Button,
-  Avatar,
-  RevealFx,
-  Column,
-  Badge,
-  Row,
-  Schema,
-  Meta,
-  Line,
-} from "@once-ui-system/core";
-import { home, about, person, baseURL, routes } from "@/resources";
-import { Mailchimp } from "@/components";
-import { Projects } from "@/components/work/Projects";
+"use client";
 
-export async function generateMetadata() {
-  return Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-    image: home.image,
-  });
-}
+import { Heading, Text, Button, Column, Row, Flex, Line } from "@once-ui-system/core";
+import { about, work } from "@/resources";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import SkillsGridHome from "@/components/home/SkillsGridHome";
 
 export default function Home() {
+  const services = [
+    {
+      title: "iOS Development",
+      description: "Aplicaciones nativas en Swift con enfoque en rendimiento y experiencia de usuario.",
+      icon: "",
+      color: "blue",
+    },
+    {
+      title: "Android Development",
+      description: "Apps Android modernas con Kotlin y las últimas características de la plataforma.",
+      icon: "🤖",
+      color: "green",
+    },
+    {
+      title: "UI/UX Design",
+      description: "Interfaces atractivas e intuitivas siguiendo guías de diseño.",
+      icon: "🎨",
+      color: "purple",
+    },
+  ];
+
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
-      <Schema
-        as="webPage"
-        baseURL={baseURL}
-        path={home.path}
-        title={home.title}
-        description={home.description}
-        image={`/api/og/generate?title=${encodeURIComponent(home.title)}`}
-        author={{
-          name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-      <Column fillWidth horizontal="center" gap="m">
-        <Column maxWidth="s" horizontal="center" align="center">
-          {home.featured.display && (
-            <RevealFx
-              fillWidth
-              horizontal="center"
-              paddingTop="16"
-              paddingBottom="32"
-              paddingLeft="12"
-            >
-              <Badge
-                background="brand-alpha-weak"
-                paddingX="12"
-                paddingY="4"
-                onBackground="neutral-strong"
-                textVariant="label-default-s"
-                arrow={false}
-                href={home.featured.href}
-              >
-                <Row paddingY="2">{home.featured.title}</Row>
-              </Badge>
-            </RevealFx>
-          )}
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
-            </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              weight="default"
-              arrowIcon
-            >
-              <Row gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
-                  <Avatar
-                    marginRight="8"
-                    style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Row>
+    <Flex direction="column" gap="xxl" paddingY="16" align="center">
+      <Column fillWidth maxWidth="1200px" paddingX="24">
+        {/* 🌟 HERO */}
+        <Column align="center" gap="m">
+          <Heading variant="display-strong-l">Ana Ganfornina</Heading>
+          <Heading
+            variant="heading-strong-l"
+            style={{ color: "#9b5de5", marginTop: "-12px" }}
+          >
+            Mobile Developer
+          </Heading>
+          <Text variant="heading-default-l" onBackground="neutral-weak" align="center">
+            Especializada en crear experiencias móviles únicas con Swift, Kotlin y Flutter.
+          </Text>
+          <Row gap="12" paddingTop="12">
+            <Button href={about.path} variant="secondary" size="m">
+              Sobre mí
             </Button>
-          </RevealFx>
+            <Button href={work.path} variant="primary" size="m" arrowIcon>
+              Ver proyectos
+            </Button>
+          </Row>
+        </Column>
+
+        <Line variant="solid" marginY="8" />
+
+        {/* 💡 SERVICES */}
+        <SkillsGridHome skills={services} />
+
+        <Line variant="solid" marginY="8" />
+
+        {/* 💌 CONTACT */}
+        <Column align="center" gap="l" maxWidth="m">
+          <Heading variant="heading-strong-l" style={{ color: "#9b5de5" }}>
+            Get in Touch
+          </Heading>
+          <Text variant="heading-default-m" onBackground="neutral-weak" align="center">
+            Hablemos sobre tu proyecto o idea. ¡Me encantaría colaborar contigo!
+          </Text>
+
+          <Row wrap gap="12" justify="center" paddingTop="12">
+            <Button
+              as="a"
+              href="https://www.linkedin.com/in/ana-ganfornina"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              size="l"
+            >
+              <FaLinkedin size={22} /> LinkedIn
+            </Button>
+            <Button
+              as="a"
+              href="https://github.com/ana-ganfornina"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              size="l"
+            >
+              <FaGithub size={22} /> GitHub
+            </Button>
+            <Button
+              as="a"
+              href="mailto:ana.ganfornina@example.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              size="l"
+            >
+              <MdEmail size={22} /> Email
+            </Button>
+          </Row>
         </Column>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
-      <Projects range={[2]} />
-      <Mailchimp />
-    </Column>
+    </Flex>
   );
 }

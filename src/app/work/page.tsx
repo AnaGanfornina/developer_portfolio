@@ -1,33 +1,37 @@
 "use client";
-
 import SingleProjectCard from "./components/SingleProjectCard";
 
 export default function WorkPage() {
   const projects = [
     {
-      title: "FitTrack",
-      description: "Una app para que los profesionales del fitness gestionen las rutinas de sus clientes.",
+      title: "FitTrack Pro",
+      description: "Una app para que los profesionales del fitness gestionen las rutinas de sus clientes de forma intuitiva y eficiente.",
       images: [
         "/images/fittrack1.jpg",
         "/images/fittrack2.jpg"
       ]
-    }
-    // Para añadir más, solo duplica y cambia los datos:
+    },
+    // Puedes añadir más proyectos aquí:
     // {
-    //   title: "Otro Proyecto",
-    //   description: "Descripción del proyecto",
-    //   images: ["/images/img4.jpg", "/images/img5.jpg"]
+    //   title: "NutriBalance",
+    //   description: "Plataforma de nutrición personalizada con seguimiento en tiempo real.",
+    //   images: [
+    //     "/images/nutri1.jpg",
+    //     "/images/nutri2.jpg"
+    //   ]
     // }
   ];
 
   return (
-    <div style={{
-      display: "flex",
-      flexWrap: "wrap",
-      gap: "24px",
-      justifyContent: "center",
-      padding: "24px"
-    }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "24px",
+        padding: "40px 24px",
+        minHeight: "100vh"
+      }}
+    >
       {projects.map((project, i) => (
         <SingleProjectCard
           key={i}

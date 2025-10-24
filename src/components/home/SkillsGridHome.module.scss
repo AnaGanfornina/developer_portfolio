@@ -1,0 +1,62 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); // fila responsiva
+  gap: 24px;
+  width: 100%;
+}
+
+/* Mantén el resto igual que tu module original */
+.skillCard {
+  padding: 32px 28px;
+  border-radius: 16px;
+  background: var(--neutral-alpha-weak);
+  border: 1px solid var(--neutral-alpha-medium);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-alpha-medium);
+    background: var(--neutral-alpha-medium);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-solid-medium) 0%, var(--accent-solid-strong) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.skillTitle {
+  display: block;
+  color: var(--neutral-solid-strong);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.description {
+  color: var(--neutral-solid-medium);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
