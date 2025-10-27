@@ -18,54 +18,39 @@ interface SkillsGridProps {
 export default function SkillsGridHome({ skills }: SkillsGridProps) {
   return (
     <Column fillWidth marginBottom="40">
-      <Heading 
-        as="h2" 
-        id="Technical Skills"
-        variant="display-strong-s" 
+      <Heading
+        as="h2"
+        id="Services"
+        variant="display-strong-s"
         marginBottom="l"
+        style={{ textAlign: "center" }}
       >
-        Technical Skills
+        Services
       </Heading>
-      
+
       <div className={styles.gridContainer}>
         {skills.map((skill, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className={styles.skillCard}
-            data-color={skill.color || 'default'}
+            data-color={skill.color || "default"}
           >
-            <div className={styles.cardHeader}>
-              {skill.icon && (
-                <div className={styles.iconWrapper}>
-                  <span className={styles.icon}>{skill.icon}</span>
-                </div>
-              )}
-              <h3 className={styles.skillTitle}>
-                {skill.title}
-              </h3>
-            </div>
-            
-            {skill.description && (
-              <Text 
-                variant="body-default-m" 
-                onBackground="neutral-weak" 
-                marginBottom="16"
-                className={styles.description}
+            {skill.icon && (
+              <div className={styles.iconWrapper}>
+                <span className={styles.icon}>{skill.icon}</span>
+              </div>
+            )}
+            <div className={styles.textWrapper}>
+              <Text
+                variant="body-default-m"
+                onBackground="neutral-weak"
+                className={styles.skillText}
               >
+                <strong>{skill.title}</strong>
+                <br />
                 {skill.description}
               </Text>
-            )}
-            
-            {skill.items && skill.items.length > 0 && (
-              <ul className={styles.skillList}>
-                {skill.items.map((item, i) => (
-                  <li key={i} className={styles.skillItem}>
-                    <span className={styles.bullet}>•</span>
-                    <span className={styles.itemText}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
+            </div>
           </div>
         ))}
       </div>

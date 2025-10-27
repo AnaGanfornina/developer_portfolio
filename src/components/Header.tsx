@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, work, gallery } from "@/resources"; 
+import { routes, display, person, about, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -71,6 +71,7 @@ export const Header = () => {
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
           {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
         </Row>
+
         <Row fillWidth horizontal="center">
           <Row
             background="page"
@@ -86,6 +87,7 @@ export const Header = () => {
                 <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
+
               {routes["/about"] && (
                 <>
                   <Row s={{ hide: true }}>
@@ -105,6 +107,7 @@ export const Header = () => {
                   </Row>
                 </>
               )}
+
               {routes["/work"] && (
                 <>
                   <Row s={{ hide: true }}>
@@ -124,6 +127,8 @@ export const Header = () => {
                   </Row>
                 </>
               )}
+
+              {/* 🔒 Gallery desactivado temporalmente
               {routes["/gallery"] && (
                 <>
                   <Row s={{ hide: true }}>
@@ -142,7 +147,9 @@ export const Header = () => {
                     />
                   </Row>
                 </>
-              )}
+              )} 
+              */}
+
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
@@ -152,6 +159,7 @@ export const Header = () => {
             </Row>
           </Row>
         </Row>
+
         <Flex fillWidth horizontal="end" vertical="center">
           <Flex
             paddingRight="12"
