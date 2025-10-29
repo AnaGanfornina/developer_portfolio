@@ -2,21 +2,20 @@
   display: grid;
   gap: 24px;
   width: 100%;
-  /* Fuerza 3 columnas de igual tamaño, lo que las hará más estrechas para ajustarse al espacio disponible */
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
 
-  @media (max-width: 900px) { /* Para pantallas medianas (tablets) */
-    grid-template-columns: repeat(2, 1fr); /* Reduce a 2 columnas */
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 640px) { /* Para móviles */
-    grid-template-columns: 1fr; /* Una columna */
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
   }
 }
 
 .skillCard {
-  padding: 20px; /* Mantén este padding o ajústalo según el nivel de "compresión" deseado */
+  padding: 20px;
   border-radius: 16px;
   background: var(--neutral-alpha-weak);
   border: 1px solid var(--neutral-alpha-medium);
@@ -25,29 +24,49 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* NO poner max-width aquí para que ocupen el 1/3 del espacio disponible */
 
   &:hover {
     transform: translateY(-3px);
     border-color: var(--accent-alpha-medium);
     background: var(--neutral-alpha-medium);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+    .titleText,
+    .descText {
+      color: #ffffff !important;
+    }
+
+    .iconWrapper {
+      transform: scale(1.05);
+    }
+  }
+
+  &[data-color="blue"] .iconWrapper {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  }
+
+  &[data-color="green"] .iconWrapper {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+
+  &[data-color="orange"] .iconWrapper {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  }
+
+  &[data-color="purple"] .iconWrapper {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   }
 }
 
 .iconWrapper {
-  width: 52px; 
+  width: 52px;
   height: 52px;
   border-radius: 12px;
-  background: linear-gradient(
-    135deg,
-    var(--accent-solid-medium) 0%,
-    var(--accent-solid-strong) 100%
-  );
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 12px;
+  transition: transform 0.3s ease;
 }
 
 .icon {
@@ -64,4 +83,15 @@
   line-height: 1.5;
   font-size: 0.95rem;
   text-align: left;
+  transition: color 0.3s ease;
+}
+
+.titleText {
+  font-weight: 600;
+  display: inline;
+}
+
+.descText {
+  font-weight: 400;
+  display: inline;
 }
