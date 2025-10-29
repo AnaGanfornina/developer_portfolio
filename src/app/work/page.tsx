@@ -5,7 +5,7 @@ export default function WorkPage() {
   const projects = [
     {
       title: "FitTrack Pro",
-      description: "Una app para que los profesionales del fitness gestionen las rutinas de sus clientes de forma intuitiva y eficiente.",
+      description: "A fitness app that allows professionals to manage their clients’ routines intuitively and efficiently.",
       images: [
         "/images/fittrack1.jpg",
         "/images/fittrack2.jpg"

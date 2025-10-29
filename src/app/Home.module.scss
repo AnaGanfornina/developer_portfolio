@@ -1,0 +1,101 @@
+/* Contenedor botones héroe */
+.heroButtons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* Botones héroe */
+.heroButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  min-width: 140px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: inherit;
+
+  border: 1px solid #444; /* borde modo claro */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  background: transparent;
+
+  &:hover {
+    background: rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  &.about {
+    background: transparent;
+  }
+
+  &.work {
+    background: #9b5de5;
+    color: #fff;
+    border-color: #9b5de5;
+
+    &:hover {
+      background: #8a4ed1;
+    }
+  }
+}
+
+/* Contenedor botones de contacto */
+.contactButtons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+/* Botones de contacto */
+.contactButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: inherit;
+
+  border: 1px solid #444;
+  background: transparent;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+
+  &:hover {
+    background: rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .heroButton,
+  .contactButton {
+    border: 1px solid #fff;
+    box-shadow: 0 1px 3px rgba(255,255,255,0.15);
+    color: #fff;
+
+    &:hover {
+      background: rgba(255,255,255,0.15);
+      box-shadow: 0 4px 8px rgba(255,255,255,0.3);
+    }
+  }
+
+  .heroButton.work {
+    background: #9b5de5; /* morado fijo */
+    border-color: #fff;
+
+    &:hover {
+      background: #a06ef0;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.3);
+    }
+  }
+}
