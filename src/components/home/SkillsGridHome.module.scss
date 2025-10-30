@@ -31,8 +31,8 @@
     background: var(--neutral-alpha-medium);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 
-    .titleText,
-    .descText {
+    .skillText,
+    .skillText strong {
       color: #ffffff !important;
     }
 
@@ -58,10 +58,26 @@
   }
 }
 
+// Override para modo claro
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  .skillCard:hover {
+    .skillText,
+    .skillText strong {
+      color: rgb(10, 10, 10) !important;
+    }
+  }
+}
+
 .iconWrapper {
   width: 52px;
   height: 52px;
   border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--accent-solid-medium) 0%,
+    var(--accent-solid-strong) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,14 +100,29 @@
   font-size: 0.95rem;
   text-align: left;
   transition: color 0.3s ease;
-}
-
-.titleText {
-  font-weight: 600;
-  display: inline;
-}
-
-.descText {
+  margin: 0;
   font-weight: 400;
-  display: inline;
+
+  strong {
+    font-weight: 600;
+    display: inline;
+  }
+}
+
+// Soporte para tema oscuro
+@media (prefers-color-scheme: dark) {
+  .skillCard {
+    background: var(--neutral-alpha-weak);
+    border-color: var(--neutral-alpha-medium);
+
+    &:hover {
+      background: var(--neutral-alpha-medium);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+      .skillText,
+      .skillText strong {
+        color: #ffffff !important;
+      }
+    }
+  }
 }

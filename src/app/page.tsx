@@ -32,19 +32,10 @@ export default function Home() {
   ];
 
   return (
-    <main style={{ display: "flex", justifyContent: "center", padding: "64px 0" }}>
+    <main className={styles.homeContainer}>
       <div style={{ width: "100%", maxWidth: 1200, padding: "0 24px" }}>
         {/* HERO */}
-        <section
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center",
-            gap: 12,
-            marginBottom: 32,
-          }}
-        >
+        <section className={styles.hero}>
           {/* Avatar */}
           <div
             style={{
@@ -54,6 +45,7 @@ export default function Home() {
               overflow: "hidden",
               marginBottom: 16,
               border: "4px solid #9b5de5",
+              margin: "0 auto 16px",
             }}
           >
             <img
@@ -63,37 +55,59 @@ export default function Home() {
             />
           </div>
 
-          <h1 style={{ fontSize: "2.5rem", fontWeight: 700 }}>Ana Ganfornina</h1>
+          <h1 className={styles.title}>Ana Ganfornina</h1>
           <h2
             style={{
               fontSize: "1.75rem",
               fontWeight: 700,
               color: "#9b5de5",
               marginTop: "-12px",
+              marginBottom: "8px",
             }}
           >
             Mobile Developer
           </h2>
-          <p style={{ color: "#737373", fontSize: "1.125rem", maxWidth: 760 }}>
+          <p className={styles.subtitle}>
             Specialized in creating unique mobile experiences with Swift and Kotlin.
           </p>
 
           {/* HERO BUTTONS */}
-          <div className={styles.heroButtons}>
-            <a href={about.path} className={`${styles.heroButton} ${styles.about}`}>
+          <div className={styles.buttonsRow}>
+            <a href={about.path} className={styles.outlinedButton}>
               About Me
             </a>
 
-            <a href={work.path} className={`${styles.heroButton} ${styles.work}`}>
+            <a href={work.path} className={styles.filledButton}>
               View Projects →
             </a>
           </div>
         </section>
 
+        {/* Separador */}
+        <div
+          style={{
+            height: 1,
+            background: "rgba(0,0,0,0.06)",
+            margin: "48px 0",
+          }}
+        />
+
         {/* SERVICES */}
         <section>
+          <h2 style={{ fontSize: "2rem", fontWeight: 700, textAlign: "center", marginBottom: "32px" }}>
+            Services
+          </h2>
           <SkillsGridHome skills={services} />
         </section>
+
+        {/* Separador */}
+        <div
+          style={{
+            height: 1,
+            background: "rgba(0,0,0,0.06)",
+            margin: "48px 0",
+          }}
+        />
 
         {/* CONTACT */}
         <section
@@ -103,20 +117,19 @@ export default function Home() {
             alignItems: "center",
             textAlign: "center",
             gap: 12,
-            marginTop: 32,
           }}
         >
           <h2 style={{ fontSize: "2rem", fontWeight: 700 }}>Get in Touch</h2>
-          <p style={{ color: "#737373", maxWidth: 760 }}>
+          <p style={{ color: "#737373", maxWidth: 760, marginBottom: "20px" }}>
             Let's talk about your project or idea. I'd love to collaborate with you!
           </p>
 
-          <div className={styles.contactButtons}>
+          <div className={styles.socialButtons}>
             <a
               href="https://www.linkedin.com/in/ana-ganfornina-arques/?locale=en_US"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.contactButton}
+              className={styles.socialButton}
             >
               <FaLinkedin size={18} /> LinkedIn
             </a>
@@ -125,12 +138,12 @@ export default function Home() {
               href="https://github.com/AnaGanfornina"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.contactButton}
+              className={styles.socialButton}
             >
               <FaGithub size={18} /> GitHub
             </a>
 
-            <a href="mailto:aganforques@gmail.com" className={styles.contactButton}>
+            <a href="mailto:aganforques@gmail.com" className={styles.socialButton}>
               <MdEmail size={18} /> Email
             </a>
           </div>

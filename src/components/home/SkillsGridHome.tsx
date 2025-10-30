@@ -1,5 +1,4 @@
 "use client";
-
 import React, { ReactNode } from "react";
 import styles from "./SkillsGridHome.module.scss";
 
@@ -25,11 +24,11 @@ export default function SkillsGridHome({ skills }: SkillsGridProps) {
             </div>
           )}
           <div className={styles.textWrapper}>
-            <div className={styles.skillText}>
-              <span className={styles.titleText}>{skill.title}</span>
+            <p className={styles.skillText}>
+              <strong className={styles.titleText}>{skill.title}</strong>
               <br />
               <span className={styles.descText}>{skill.description}</span>
-            </div>
+            </p>
           </div>
         </div>
       ))}
